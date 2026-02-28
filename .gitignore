@@ -5,6 +5,7 @@ __pycache__/
 data/*.csv
 data/models/
 *.joblib
+data/tinyml_params.json
 
 .DS_Store
 Thumbs.db

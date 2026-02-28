@@ -17,6 +17,8 @@ This project implements a lightweight predictive maintenance pipeline inspired b
 |   |-- cloud_train.py     # cloud model training pipeline
 |   |-- evaluate.py        # evaluation metrics
 |   |-- data_utils.py      # dataset utilities
+|   |-- streaming.py       # streaming simulation
+|   |-- tinyml_export.py   # TinyML parameter export
 |   `-- config.py          # configuration
 `-- requirements.txt
 ```
@@ -53,6 +55,18 @@ python src/fog_aggregator.py
 
 ```
 python src/evaluate.py
+```
+
+7. Run streaming edge/fog simulation:
+
+```
+python src/streaming.py
+```
+
+8. Export TinyML parameters (for microcontroller deployment):
+
+```
+python src/tinyml_export.py
 ```
 
 ## Notes

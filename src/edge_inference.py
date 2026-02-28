@@ -1,11 +1,23 @@
 import joblib
+import pandas as pd
+
 from config import MODEL_FILE
-from data_utils import load_dataset, split_features_labels
+from data_utils import align_features, load_dataset, split_features_labels
 
 
 def edge_predict(sample):
-    model = joblib.load(MODEL_FILE)
-    pred = model.predict(sample)
+    payload = joblib.load(MODEL_FILE)
+    pipeline = payload["pipeline"]
+    feature_names = payload["feature_names"]
+    sample_aligned = align_features(sample, feature_names)
+    pred = pipeline.predict(sample_aligned)
+    return int(pred[0])
+
+
+def edge_predict_stream(row, feature_names, pipeline):
+    sample = pd.DataFrame([row])
+    sample_aligned = align_features(sample, feature_names)
+    pred = pipeline.predict(sample_aligned)
     return int(pred[0])
 
 

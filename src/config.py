@@ -10,3 +10,4 @@ MODEL_FILE = MODEL_DIR / "logreg_model.joblib"
 TARGET_COLUMN = "failure"
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
+CLASS_WEIGHT = "balanced"
